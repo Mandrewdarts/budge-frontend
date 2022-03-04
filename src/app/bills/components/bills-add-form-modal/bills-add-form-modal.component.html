@@ -1,0 +1,44 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-title>Add Bill</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="close()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form action="" [formGroup]="form">
+    <ion-item class="ion-margin">
+      <ion-label position="stacked">Name</ion-label>
+      <ion-input
+        formControlName="name"
+        placeholder="Rent, Car, etc..."
+      ></ion-input>
+    </ion-item>
+
+    <ion-item class="ion-margin">
+      <ion-label position="stacked">Frequency</ion-label>
+      <ion-select formControlName="frequency" placeholder="Rent, Car, etc...">
+        <ion-select-option value="monthly">Monthly</ion-select-option>
+        <ion-select-option value="bi-weekly">Bi-weekly</ion-select-option>
+        <ion-select-option value="weekly">Weekly</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item class="ion-margin">
+      <ion-label position="stacked">Date</ion-label>
+      <ion-datetime formControlName="date"></ion-datetime>
+    </ion-item>
+
+    <ion-item class="ion-margin">
+      <ion-label position="stacked">Amount</ion-label>
+      <ion-input formControlName="amount" placeholder="100.00"></ion-input>
+    </ion-item>
+
+    <div class="ion-margin">
+      <ion-button (click)="submit()">Submit</ion-button>
+      <ion-button>Clear</ion-button>
+    </div>
+  </form>
+</ion-content>

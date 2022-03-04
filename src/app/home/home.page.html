@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Home </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="ion-padding">
+    <ion-text color="primary">
+      <h1>{{ today | date }}</h1>
+    </ion-text>
+  </div>
+
+  <div class="ion-padding-start ion-padding-end">
+    <ion-text>
+      <h6>This week</h6>
+    </ion-text>
+  </div>
+
+  <ng-container *ngFor="let bill of upcomingBills">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>{{ bill.bill.name }}</ion-card-title>
+        <ion-card-subtitle>
+          <div
+            style="display: flex"
+            class="ion-justify-content-between ion-align-items-start"
+          >
+            <span>due on {{ bill.due_date | date }}</span>
+            <ion-text
+              ><strong
+                >{{ bill.bill.amount / 100 | currency }}</strong
+              ></ion-text
+            >
+          </div>
+        </ion-card-subtitle>
+      </ion-card-header>
+    </ion-card>
+  </ng-container>
+</ion-content>
